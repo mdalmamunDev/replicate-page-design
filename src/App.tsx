@@ -130,7 +130,7 @@ function SubscriptionForm() {
     <div className="min-h-screen bg-white font-sans text-[#111]">
       {/* top bar with phne number and email */}
       <div className="bg-[#1c1c1c] text-white text-xs">
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between px-6 py-2.5">
+        <div className="max-w-[1000px] mx-auto flex items-center justify-between px-6 py-2.5">
           <div className="tracking-wide">
             <span className="mr-1">PHONE:</span>
             <span className="font-medium">01858 438 819</span>
@@ -143,10 +143,10 @@ function SubscriptionForm() {
       </div>
 
       {/* main container for the whole form */}
-      <div className="max-w-[1200px] mx-auto px-6 pb-20">
+      <div className="max-w-[1000px] mx-auto px-6 pb-20">
         {/* big vogue logo in middle */}
-        <div className="text-center pt-6 pb-4">
-          <h1 className="text-6xl font-serif tracking-tight">VOGUE</h1>
+        <div className="pt-6 pb-4">
+          <img src="/logo.png" alt="Vogue logo" className="w-[180px] md:w-[300px] ms-[-15px]" />
         </div>
 
         {/* two colum layout - form on left, cover on right */}
@@ -314,7 +314,7 @@ function SubscriptionForm() {
                 )}
 
                 <div className="flex items-start gap-4">
-                  <div className="text-2xl font-bold shrink-0">
+                  <div className="text-2xl font-bold shrink-0 w-26 m-auto text-center">
                     {currentCountry.currency}
                     {formatPrice(currentCountry.prices[orderType]['6'])}
                   </div>
@@ -349,7 +349,7 @@ function SubscriptionForm() {
                 )}
 
                 <div className="flex items-start gap-4">
-                  <div className="text-2xl font-bold shrink-0">
+                  <div className="text-2xl font-bold shrink-0 w-26 m-auto text-center">
                     {currentCountry.currency}
                     {formatPrice(currentCountry.prices[orderType]['12'])}
                   </div>

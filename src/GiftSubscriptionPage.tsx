@@ -53,7 +53,7 @@ export default function GiftSubscriptionPage() {
       {/* main container */}
       <div className="max-w-[1000px] mx-auto px-6 py-8">
         {/* big vogue logo */}
-        <div className="text-center mb-8">
+        <div className="mb-8">
           <img src="/logo.png" alt="Vogue logo" className="w-[180px] md:w-[300px] ms-[-15px]" />
         </div>
 

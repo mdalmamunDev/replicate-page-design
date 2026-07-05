@@ -1,6 +1,9 @@
 // self subscription page - when user picks "i'm buying for myself"
 // all comments are lowercase with spelling mistakes to look human
 
+import CheckoutButton from "./components/CheckoutButton";
+import TopBar from "./components/TopBar";
+
 
 
 // small helper to make form fields
@@ -25,18 +28,7 @@ export default function SelfSubscriptionPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-[#111]">
       {/* top bar with phne number and email - same as before */}
-      <div className="bg-[#1c1c1c] text-white text-xs">
-        <div className="max-w-[1000px] mx-auto flex items-center justify-between px-6 py-2.5">
-          <div className="tracking-wide">
-            <span className="mr-1">PHONE:</span>
-            <span className="font-medium">01858 438 819</span>
-          </div>
-          <div className="tracking-wide">
-            <span className="mr-1">EMAIL:</span>
-            <span className="font-medium">CONDENAST@SUBSCRIPTION.CO.UK</span>
-          </div>
-        </div>
-      </div>
+      <TopBar />
 
       {/* main container */}
       <div className="max-w-[1000px] mx-auto px-6 py-8">
@@ -187,6 +179,8 @@ function OrderSummary() {
         </div>
         <span className="text-xs font-medium">SECURE PAYMENT</span>
       </div>
+
+      <CheckoutButton onClick={() => {}} text="PAY NOW"/>
     </div>
   );
 }

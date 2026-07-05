@@ -1,6 +1,8 @@
 // gift subscription page - when user picks "i'm buying a gift"
 // all comments are lowercase with spelling mistakes to look human
 
+import CheckoutButton from "./components/CheckoutButton";
+
 
 
 // small helper to make form fields
@@ -152,6 +154,8 @@ function OrderSummary() {
         </div>
         <span className="text-xs font-medium">SECURE PAYMENT</span>
       </div>
+
+      <CheckoutButton onClick={() => {}} text="PAY NOW"/>
     </div>
   );
 }

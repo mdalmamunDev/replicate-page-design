@@ -129,18 +129,7 @@ function SubscriptionForm() {
   return (
     <div className="min-h-screen bg-white font-sans text-[#111]">
       {/* top bar with phne number and email */}
-      <div className="bg-[#1c1c1c] text-white text-xs">
-        <div className="max-w-[1000px] mx-auto flex items-center justify-between px-6 py-2.5">
-          <div className="tracking-wide">
-            <span className="mr-1">PHONE:</span>
-            <span className="font-medium">01858 438 819</span>
-          </div>
-          <div className="tracking-wide">
-            <span className="mr-1">EMAIL:</span>
-            <span className="font-medium">CONDENAST@SUBSCRIPTION.CO.UK</span>
-          </div>
-        </div>
-      </div>
+      <TopBar />
 
       {/* main container for the whole form */}
       <div className="max-w-[1000px] mx-auto px-6 pb-20">
@@ -152,7 +141,7 @@ function SubscriptionForm() {
         {/* two colum layout - form on left, cover on right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 mt-6">
           {/* left col - the subscription form */}
-          <div className="pr-4">
+          <div>
             {/* section title "Vogue" with line under */}
             <div className="flex items-end gap-4 border-b border-gray-200 pb-2 mb-6">
               <h2 className="text-2xl font-bold">Vogue</h2>
@@ -299,7 +288,7 @@ function SubscriptionForm() {
               {/* six issue offer card */}
               <div
                 onClick={() => setSelectedOffer('6')}
-                className={`relative rounded-md p-5 mb-4 bg-white cursor-pointer transition-all ${
+                className={`relative rounded-md p-2 sm:p-5 mb-4 bg-white cursor-pointer transition-all ${
                   selectedOffer === '6'
                     ? 'border-2 border-black'
                     : 'border border-gray-300 hover:border-gray-500'
@@ -313,15 +302,15 @@ function SubscriptionForm() {
                   </div>
                 )}
 
-                <div className="flex items-start gap-4">
-                  <div className="text-2xl font-bold shrink-0 w-26 m-auto text-center">
+                <div className="flex items-start gap-1 sm:gap-4">
+                  <div className="text-lg sm:text-2xl font-bold shrink-0 w-20 sm:w-26 m-auto text-center">
                     {currentCountry.currency}
                     {formatPrice(currentCountry.prices[orderType]['6'])}
                   </div>
 
                   <div className="flex-1">
                     <PaymentIcons />
-                    <p className="text-xs text-gray-700 leading-relaxed mt-2">
+                    <p className="text-[11px] sm:text-xs text-gray-700 leading-relaxed mt-2">
                       <span className="font-semibold">
                         {offerConfigs[orderType]['6'].title}
                       </span>{' '}
@@ -334,7 +323,7 @@ function SubscriptionForm() {
               {/* one year offer card */}
               <div
                 onClick={() => setSelectedOffer('12')}
-                className={`relative rounded-md p-5 bg-white cursor-pointer transition-all ${
+                className={`relative rounded-md p-2 sm:p-5 bg-white cursor-pointer transition-all ${
                   selectedOffer === '12'
                     ? 'border-2 border-black'
                     : 'border border-gray-300 hover:border-gray-500'
@@ -348,15 +337,15 @@ function SubscriptionForm() {
                   </div>
                 )}
 
-                <div className="flex items-start gap-4">
-                  <div className="text-2xl font-bold shrink-0 w-26 m-auto text-center">
+                <div className="flex items-start gap-1 sm:gap-4">
+                  <div className="text-lg sm:text-2xl font-bold shrink-0 w-20 sm:w-26 m-auto text-center">
                     {currentCountry.currency}
                     {formatPrice(currentCountry.prices[orderType]['12'])}
                   </div>
 
                   <div className="flex-1">
                     <PaymentIcons />
-                    <p className="text-xs text-gray-700 leading-relaxed mt-2">
+                    <p className="text-[11px] sm:text-xs text-gray-700 leading-relaxed mt-2">
                       <span className="font-semibold">
                         {offerConfigs[orderType]['12'].title}
                       </span>{' '}
@@ -368,14 +357,7 @@ function SubscriptionForm() {
             </div>
 
             {/* green checkout button at the bottom */}
-            <div className="flex justify-center mt-10">
-              <button
-                onClick={handleContinue}
-                className="bg-[#2ca01c] hover:bg-[#248a15] text-white px-16 py-4 text-sm font-bold tracking-wider rounded-sm transition-colors"
-              >
-                CONTINUE TO CHECKOUT &rsaquo;
-              </button>
-            </div>
+            <CheckoutButton onClick={handleContinue} />
           </div>
 
           {/* right col - magazine cover and extra info */}
@@ -420,30 +402,14 @@ function SubscriptionForm() {
 }
 
 // small component for the payment icons row
-function PaymentIcons() {
-  return (
-    <div className="flex items-center gap-2">
-      <div className="bg-black text-white text-[10px] px-1.5 py-0.5 rounded-sm flex items-center gap-1 font-bold">
-        <span></span>Pay
-      </div>
-      <div className="bg-[#003087] text-white text-[10px] px-1.5 py-0.5 rounded-sm font-bold italic">
-        PayPal
-      </div>
-      <div className="bg-[#2E77BC] text-white text-[10px] px-1.5 py-0.5 rounded-sm font-bold">
-        AE
-      </div>
-      <div className="flex">
-        <div className="w-4 h-4 bg-[#EB001B] rounded-full"></div>
-        <div className="w-4 h-4 bg-[#F79E1B] rounded-full -ml-2"></div>
-      </div>
-      <div className="text-[#1A1F71] font-bold text-sm italic tracking-tight">VISA</div>
-    </div>
-  );
-}
+
 
 // import the checkout pages
 import SelfSubscriptionPage from './SelfSubscriptionPage';
 import GiftSubscriptionPage from './GiftSubscriptionPage';
+import TopBar from './components/TopBar';
+import PaymentIcons from './components/PaymentIcons';
+import CheckoutButton from './components/CheckoutButton';
 
 // main app with router
 export default function App() {

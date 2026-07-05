@@ -15,6 +15,7 @@ const FormField = ({ label, required = false, placeholder = '' }: { label: strin
     <input
       type="text"
       placeholder={placeholder}
+      required={required}
       className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-black"
     />
   </div>
@@ -62,7 +63,7 @@ export default function GiftSubscriptionPage() {
         {/* two col layout - form on left, summary on right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12">
           {/* left col - all the forms */}
-          <div>
+          <form id="checkout-form" onSubmit={(e) => e.preventDefault()}>
             {/* details of the subscription reciever */}
             <div className="mb-8">
               <h2 className="text-lg font-bold mb-4">DETAILS OF THE SUBSCRIPTION RECEIVER</h2>
@@ -89,12 +90,12 @@ export default function GiftSubscriptionPage() {
                 <FormField label="Last Name" required placeholder="Enter last name" />
               </div>
               <FormField label="Email Address" required placeholder="Enter email address" />
-              <FormField label="Phone Number" placeholder="Enter phone number" />
+              <FormField label="Phone Number" required placeholder="Enter phone number" />
             </div>
 
             {/* payment details section at the bottom */}
             <PaymentOptionsSection />
-          </div>
+          </form>
 
           {/* right col - order summary */}
           <div className="lg:border-l lg:pl-8">
@@ -155,7 +156,7 @@ function OrderSummary() {
         <span className="text-xs font-medium">SECURE PAYMENT</span>
       </div>
 
-      <CheckoutButton onClick={() => {}} text="PAY NOW"/>
+      <CheckoutButton onClick={() => {}} text="PAY NOW" formId="checkout-form"/>
     </div>
   );
 }

@@ -16,6 +16,7 @@ const FormField = ({ label, required = false, placeholder = '' }: { label: strin
     <input
       type="text"
       placeholder={placeholder}
+      required={required}
       className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-black"
     />
   </div>
@@ -40,7 +41,7 @@ export default function SelfSubscriptionPage() {
         {/* two col layout - form on left, summary on right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12">
           {/* left col - all the forms */}
-          <div>
+          <form id="checkout-form" onSubmit={(e) => e.preventDefault()}>
             {/* billing details section */}
             <div className="mb-8">
               <h2 className="text-lg font-bold mb-4">BILLING DETAILS</h2>
@@ -52,7 +53,7 @@ export default function SelfSubscriptionPage() {
                   Please select a title<span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
-                  <select className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-black appearance-none">
+                  <select required className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-black appearance-none">
                     <option>Please select...</option>
                     <option>Mr</option>
                     <option>Mrs</option>
@@ -72,15 +73,16 @@ export default function SelfSubscriptionPage() {
                 <FormField label="First Name" required placeholder="Enter first name" />
                 <FormField label="Last Name" required placeholder="Enter last name" />
               </div>
-              <FormField label="Phone Number" placeholder="Enter phone number" />
+              <FormField label="Phone Number" required placeholder="Enter phone number" />
 
               {/* address search */}
               <div className="mb-4">
                 <label className="block text-xs font-medium text-gray-700 mb-1">
-                  Address
+                  Address<span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
+                  required
                   placeholder="Start typing your address..."
                   className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-black"
                 />
@@ -119,7 +121,7 @@ export default function SelfSubscriptionPage() {
 
             {/* payment details section */}
             <PaymentOptionsSection />
-          </div>
+          </form>
 
           {/* right col - order summary */}
           <div className="lg:border-l lg:pl-8">
@@ -180,7 +182,7 @@ function OrderSummary() {
         <span className="text-xs font-medium">SECURE PAYMENT</span>
       </div>
 
-      <CheckoutButton onClick={() => {}} text="PAY NOW"/>
+      <CheckoutButton onClick={() => {}} text="PAY NOW" formId="checkout-form"/>
     </div>
   );
 }
@@ -220,11 +222,11 @@ communications, please opt-out below:
 
       {/* card details form */}
       <div className="space-y-4">
-        <FormField label="Card Number" placeholder="1234 5678 9012 3456" />
+        <FormField label="Card Number" required placeholder="1234 5678 9012 3456" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <FormField label="Expiry Date" placeholder="MM/YY" />
-          <FormField label="Security Code" placeholder="CVC" />
-          <FormField label="Name on Card" placeholder="JANE DOE" />
+          <FormField label="Expiry Date" required placeholder="MM/YY" />
+          <FormField label="Security Code" required placeholder="CVC" />
+          <FormField label="Name on Card" required placeholder="JANE DOE" />
         </div>
       </div>
     </div>

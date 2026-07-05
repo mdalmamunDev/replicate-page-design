@@ -91,9 +91,9 @@ export default function SelfSubscriptionPage() {
               </button>
 
               {/* confirm button */}
-              <button className="w-full bg-black text-white py-3 text-sm font-bold tracking-wide rounded-sm hover:bg-gray-800 transition-colors">
+              {/* <button className="w-full bg-black text-white py-3 text-sm font-bold tracking-wide rounded-sm hover:bg-gray-800 transition-colors">
                 CONFIRM
-              </button>
+              </button> */}
             </div>
 
             {/* delivery details section */}

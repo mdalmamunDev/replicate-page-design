@@ -157,18 +157,18 @@ function OrderSummary() {
             </p>
             <div className="text-xs text-gray-500 mt-1">Personal order / NETHERLANDS</div>
           </div>
-          <div className="font-bold text-sm">€46.00</div>
+          <div className="font-bold text-sm">€1195</div>
         </div>
       </div>
 
       <div className="text-xs text-gray-600 space-y-2">
         <div className="flex justify-between">
           <span>Subtotal</span>
-          <span>€46.00</span>
+          <span>€1195</span>
         </div>
         <div className="flex justify-between font-bold">
           <span>TOTAL TO PAY</span>
-          <span>€46.00</span>
+          <span>€1195</span>
         </div>
       </div>
 

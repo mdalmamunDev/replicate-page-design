@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 
 // types for the main state variables
 type OrderType = 'self' | 'gift';
-type OfferKey = '6' | '12';
+type OfferKey = 
+// '6' | 
+'12';
 
 // country data with flags, currency and prices
 const countries = [
@@ -19,7 +21,7 @@ const countries = [
     name: 'NETHERLANDS',
     currency: '€',
     flag: ['#AE1C28', '#FFFFFF', '#21468B'],
-    prices: { self: { '6': 53.0, '12': 137.0 }, gift: { '6': 72.0, '12': 137.0 } },
+    prices: { self: { '6': 53.0, '12': 1195 }, gift: { '6': 72.0, '12': 1195 } },
   },
   {
     code: 'US',
@@ -47,34 +49,34 @@ const countries = [
     name: 'FRANCE',
     currency: '€',
     flag: ['#0055A4', '#FFFFFF', '#EF4135'],
-    prices: { self: { '6': 53.0, '12': 137.0 }, gift: { '6': 72.0, '12': 137.0 } },
+    prices: { self: { '6': 53.0, '12': 1195 }, gift: { '6': 72.0, '12': 1195 } },
   },
   {
     code: 'DE',
     name: 'GERMANY',
     currency: '€',
     flag: ['#000000', '#DD0000', '#FFCE00'],
-    prices: { self: { '6': 53.0, '12': 137.0 }, gift: { '6': 72.0, '12': 137.0 } },
+    prices: { self: { '6': 53.0, '12': 1195 }, gift: { '6': 72.0, '12': 1195 } },
   },
 ] as const;
 
 // offers config - self and gift have different titles and desc
 const offerConfigs: Record<OrderType, Record<OfferKey, { title: string; desc: string }>> = {
   self: {
-    '6': {
-      title: '6 ISSUES - SAVE UP TO 50%',
-      desc: 'on local prices + Free worldwide delivery + Instant digital access - Renews automatically - Cancel anytime',
-    },
+    // '6': {
+    //   title: '6 ISSUES - SAVE UP TO 50%',
+    //   desc: 'on local prices + Free worldwide delivery + Instant digital access - Renews automatically - Cancel anytime',
+    // },
     '12': {
       title: 'One year only',
       desc: '+ Free worldwide delivery + Instant digital access',
     },
   },
   gift: {
-    '6': {
-      title: '6 MONTHS GIFT SUBSCRIPTION',
-      desc: 'A perfect present for fashion lovers + Free worldwide delivery + Instant digital access for them',
-    },
+    // '6': {
+    //   title: '6 MONTHS GIFT SUBSCRIPTION',
+    //   desc: 'A perfect present for fashion lovers + Free worldwide delivery + Instant digital access for them',
+    // },
     '12': {
       title: '12 MONTHS GIFT SUBSCRIPTION',
       desc: '+ Free worldwide delivery + A special gift pack included + Instant digital access',
@@ -86,7 +88,7 @@ const offerConfigs: Record<OrderType, Record<OfferKey, { title: string; desc: st
 function SubscriptionForm() {
   // main states for the page
   const [orderType, setOrderType] = useState<OrderType>('self');
-  const [selectedOffer, setSelectedOffer] = useState<OfferKey>('6');
+  const [selectedOffer, setSelectedOffer] = useState<OfferKey>('12');
   const [countryCode, setCountryCode] = useState('NL');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [sameCountry, setSameCountry] = useState(true);
@@ -102,7 +104,7 @@ function SubscriptionForm() {
   useEffect(() => {
     setImageKey((k) => k + 1);
     // reset selection to first offer when type changes
-    setSelectedOffer('6');
+    setSelectedOffer('12');
   }, [orderType]);
 
   // close dropdown when clicking outside
@@ -286,7 +288,7 @@ function SubscriptionForm() {
               <h3 className="text-base font-medium mb-3">Choose your offer</h3>
 
               {/* six issue offer card */}
-              <div
+              {/* <div
                 onClick={() => setSelectedOffer('6')}
                 className={`relative rounded-md p-2 sm:p-5 mb-4 bg-white cursor-pointer transition-all ${
                   selectedOffer === '6'
@@ -318,7 +320,7 @@ function SubscriptionForm() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* one year offer card */}
               <div

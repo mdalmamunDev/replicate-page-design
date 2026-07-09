@@ -107,13 +107,13 @@ export default function SelfSubscriptionPage() {
             {/* voucher codes section */}
             <div className="mb-8">
               <h2 className="text-lg font-bold mb-4">VOUCHER CODES</h2>
-              <div className="flex gap-2">
+              <div className="flex gap-1 sm:gap-2">
                 <input
                   type="text"
                   placeholder="Enter your discount code"
                   className="flex-1 border border-gray-300 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-black"
                 />
-                <button className="bg-black text-white px-6 py-2 text-sm font-bold rounded-sm hover:bg-gray-800 transition-colors">
+                <button className="bg-black text-white px-3.5 sm:px-6 py-2 text-sm font-bold rounded-sm hover:bg-gray-800 transition-colors">
                   APPLY
                 </button>
               </div>
@@ -157,18 +157,18 @@ function OrderSummary() {
             </p>
             <div className="text-xs text-gray-500 mt-1">Personal order / NETHERLANDS</div>
           </div>
-          <div className="font-bold text-sm">€1195</div>
+          <div className="font-bold text-sm">€11,95</div>
         </div>
       </div>
 
       <div className="text-xs text-gray-600 space-y-2">
         <div className="flex justify-between">
           <span>Subtotal</span>
-          <span>€1195</span>
+          <span>€11,95</span>
         </div>
         <div className="flex justify-between font-bold">
           <span>TOTAL TO PAY</span>
-          <span>€1195</span>
+          <span>€11,95</span>
         </div>
       </div>
 

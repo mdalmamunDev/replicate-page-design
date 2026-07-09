@@ -21,7 +21,7 @@ const countries = [
     name: 'NETHERLANDS',
     currency: '€',
     flag: ['#AE1C28', '#FFFFFF', '#21468B'],
-    prices: { self: { '6': 53.0, '12': 1195 }, gift: { '6': 72.0, '12': 1195 } },
+    prices: { self: { '6': 53.0, '12': 11.95 }, gift: { '6': 72.0, '12': 11.95 } },
   },
   {
     code: 'US',
@@ -49,14 +49,14 @@ const countries = [
     name: 'FRANCE',
     currency: '€',
     flag: ['#0055A4', '#FFFFFF', '#EF4135'],
-    prices: { self: { '6': 53.0, '12': 1195 }, gift: { '6': 72.0, '12': 1195 } },
+    prices: { self: { '6': 53.0, '12': 11.95 }, gift: { '6': 72.0, '12': 11.95 } },
   },
   {
     code: 'DE',
     name: 'GERMANY',
     currency: '€',
     flag: ['#000000', '#DD0000', '#FFCE00'],
-    prices: { self: { '6': 53.0, '12': 1195 }, gift: { '6': 72.0, '12': 1195 } },
+    prices: { self: { '6': 53.0, '12': 11.95 }, gift: { '6': 72.0, '12': 11.95 } },
   },
 ] as const;
 
@@ -117,7 +117,7 @@ function SubscriptionForm() {
   }, [dropdownOpen]);
 
   // format price with two decimals
-  const formatPrice = (p: number) => p.toFixed(2);
+  const formatPrice = (p: number) => p.toFixed(2).replace('.', ',');
 
   // handle continue to checkout click
   const handleContinue = () => {
@@ -285,7 +285,7 @@ function SubscriptionForm() {
 
             {/* choose your offer section */}
             <div className="mb-8">
-              <h3 className="text-base font-medium mb-3">Choose your offer</h3>
+              {/* <h3 className="text-base font-medium mb-3">Choose your offer</h3> */}
 
               {/* six issue offer card */}
               {/* <div
@@ -339,8 +339,8 @@ function SubscriptionForm() {
                   </div>
                 )}
 
-                <div className="flex items-start gap-1 sm:gap-4">
-                  <div className="text-lg sm:text-2xl font-bold shrink-0 w-20 sm:w-26 m-auto text-center">
+                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+                  <div className="text-lg sm:text-2xl font-bold shrink-0 w-20 sm:w-26 sm:m-auto sm:text-center">
                     {currentCountry.currency}
                     {formatPrice(currentCountry.prices[orderType]['12'])}
                   </div>
@@ -375,7 +375,7 @@ function SubscriptionForm() {
             </div>
 
             {/* small nav links under the cover */}
-            <div className="flex gap-6 text-[11px] font-bold tracking-wider mb-4">
+            <div className="flex gap-6 text-[10px] sm:text-[11px] font-bold tracking-wider mb-4">
               <a href="#" className="hover:underline">DELIVERY</a>
               <a href="#" className="hover:underline">ABOUT US</a>
               <a href="#" className="hover:underline">WHY SUBSCRIBE?</a>
@@ -383,7 +383,7 @@ function SubscriptionForm() {
 
             {/* order today text */}
             <p className="text-xs text-gray-600 text-center mt-2 px-4">
-              Order today and enjoy free delivery + instant digital access
+              Order today and enjoy instant digital access
             </p>
           </div>
         </div>

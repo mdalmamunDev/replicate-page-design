@@ -409,6 +409,7 @@ function SubscriptionForm() {
 // import the checkout pages
 import SelfSubscriptionPage from './SelfSubscriptionPage';
 import GiftSubscriptionPage from './GiftSubscriptionPage';
+import PaymentConfirmationPage from './PaymentConfirmationPage';
 import TopBar from './components/TopBar';
 import PaymentIcons from './components/PaymentIcons';
 import CheckoutButton from './components/CheckoutButton';
@@ -421,6 +422,7 @@ export default function App() {
         <Route path="/" element={<SubscriptionForm />} />
         <Route path="/self-checkout" element={<SelfSubscriptionPage />} />
         <Route path="/gift-checkout" element={<GiftSubscriptionPage />} />
+        <Route path="/payment-confirmation" element={<PaymentConfirmationPage />} />
       </Routes>
     </Router>
   );

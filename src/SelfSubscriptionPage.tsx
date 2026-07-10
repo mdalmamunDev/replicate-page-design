@@ -1,6 +1,8 @@
 // self subscription page - when user picks "i'm buying for myself"
 // all comments are lowercase with spelling mistakes to look human
 
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CheckoutButton from "./components/CheckoutButton";
 import TopBar from "./components/TopBar";
 
@@ -25,6 +27,24 @@ const FormField = ({ label, required = false, placeholder = '' }: { label: strin
 export default function SelfSubscriptionPage() {
   // unused state - keeping for future
   // const [sameBilling, setSameBilling] = useState(true);
+  const [payLoading, setPayLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handlePayNow = () => {
+    setPayLoading(true);
+    setTimeout(() => {
+      setPayLoading(false);
+      navigate('/payment-confirmation', {
+        state: {
+          orderType: 'self',
+          country: 'NETHERLANDS',
+          currency: '€',
+          price: '11,95',
+          planTitle: 'One year only',
+        },
+      });
+    }, 3000);
+  };
 
   return (
     <div className="min-h-screen bg-white font-sans text-[#111]">
@@ -125,7 +145,7 @@ export default function SelfSubscriptionPage() {
 
           {/* right col - order summary */}
           <div className="lg:border-l lg:pl-8">
-            <OrderSummary />
+            <OrderSummary loading={payLoading} onPayNow={handlePayNow} />
           </div>
         </div>
       </div>
@@ -134,7 +154,7 @@ export default function SelfSubscriptionPage() {
 }
 
 // order summary component - same as in the screenshot
-function OrderSummary() {
+function OrderSummary({ loading, onPayNow }: { loading: boolean; onPayNow: () => void }) {
   return (
     <div className="sticky top-8">
       <div className="flex items-center justify-between mb-4">
@@ -182,7 +202,7 @@ function OrderSummary() {
         <span className="text-xs font-medium">SECURE PAYMENT</span>
       </div>
 
-      <CheckoutButton onClick={() => {}} text="PAY NOW" formId="checkout-form"/>
+      <CheckoutButton onClick={onPayNow} text="PAY NOW" formId="checkout-form" loading={loading} />
     </div>
   );
 }

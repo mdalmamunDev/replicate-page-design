@@ -213,10 +213,7 @@ function PaymentOptionsSection() {
     <div className="mb-8">
       <h2 className="text-lg font-bold mb-4">PAYMENT DETAILS</h2>
       <p className="text-xs text-gray-600 mb-4">
-        We will contact you about your subscription as part of our service.
-        We may send you exclusive discounts and offers on products and events from all
-your favourite Conde Nast brands. If you don't want to receive these
-communications, please opt-out below:
+        As a subscriber, you will hear from our team personally whenever something relevant to your subscription arises.!
       </p>
 
       {/* opt-out checkbox */}

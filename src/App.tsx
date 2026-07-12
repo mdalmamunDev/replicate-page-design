@@ -93,6 +93,7 @@ function SubscriptionForm() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [sameCountry, setSameCountry] = useState(true);
   const [imageKey, setImageKey] = useState(0);
+  const [activeModal, setActiveModal] = useState<'about' | 'delivery' | null>(null);
   const navigate = useNavigate();
 
   // current country object based on selected code
@@ -376,9 +377,19 @@ function SubscriptionForm() {
 
             {/* small nav links under the cover */}
             <div className="flex gap-6 text-[10px] sm:text-[11px] font-bold tracking-wider mb-4">
-              <a href="#" className="hover:underline">DELIVERY</a>
-              <a href="#" className="hover:underline">ABOUT US</a>
-              <a href="#" className="hover:underline">WHY SUBSCRIBE?</a>
+              <button
+                onClick={() => setActiveModal('delivery')}
+                className="hover:underline cursor-pointer bg-transparent border-none p-0 text-inherit"
+              >
+                DELIVERY
+              </button>
+              <button
+                onClick={() => setActiveModal('about')}
+                className="hover:underline cursor-pointer bg-transparent border-none p-0 text-inherit"
+              >
+                ABOUT US
+              </button>
+              {/* <a href="#" className="hover:underline">WHY SUBSCRIBE?</a> */}
             </div>
 
             {/* order today text */}
@@ -388,6 +399,16 @@ function SubscriptionForm() {
           </div>
         </div>
       </div>
+
+      {/* modals */}
+      <AboutUsModal
+        isOpen={activeModal === 'about'}
+        onClose={() => setActiveModal(null)}
+      />
+      <DeliveryModal
+        isOpen={activeModal === 'delivery'}
+        onClose={() => setActiveModal(null)}
+      />
 
       {/* inline style for the fade in animation */}
       <style>{`
@@ -413,6 +434,8 @@ import PaymentConfirmationPage from './PaymentConfirmationPage';
 import TopBar from './components/TopBar';
 import PaymentIcons from './components/PaymentIcons';
 import CheckoutButton from './components/CheckoutButton';
+import AboutUsModal from './components/AboutUsModal';
+import DeliveryModal from './components/DeliveryModal';
 
 // main app with router
 export default function App() {

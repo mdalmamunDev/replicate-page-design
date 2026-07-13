@@ -146,10 +146,8 @@ function OrderSummary({ loading, onPayNow }: { loading: boolean; onPayNow: () =>
           <div className="flex-1">
             <div className="font-bold text-sm">Vogue</div>
             <p className="text-xs text-gray-600 mt-1">
-              6 ISSUES - SAVE UP TO 50% on local prices + Free worldwide delivery +
-              Instant digital access - Renews automatically - Cancel anytime
+              Annual subscription - 4 issues - Immediate digital access - Cancel at any time
             </p>
-            <div className="text-xs text-gray-500 mt-1">Personal order / NETHERLANDS</div>
           </div>
           <div className="font-bold text-sm">€11,95</div>
         </div>
@@ -187,7 +185,7 @@ function PaymentOptionsSection() {
     <div className="mb-8">
       <h2 className="text-lg font-bold mb-4">PAYMENT DETAILS</h2>
       <p className="text-xs text-gray-600 mb-4">
-        As a subscriber, you will hear from our team personally whenever something relevant to your subscription arises.!
+        As a subscriber, you will hear from our team personally whenever something relevant to your subscription arises.
       </p>
 
       {/* opt-out checkbox */}

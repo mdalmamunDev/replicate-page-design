@@ -75,9 +75,9 @@ export default function GiftSubscriptionPage() {
 
       {/* main container */}
       <div className="max-w-[1000px] mx-auto px-6 py-8">
-        {/* big vogue logo */}
+        {/* big elan logo */}
         <div className="mb-8">
-          <img src="/logo.png" alt="Vogue logo" className="w-[180px] md:w-[300px] ms-[-15px]" />
+          <img src="/logo.png" alt="ÉLAN Homme logo" className="w-[180px] md:w-[300px] ms-[-15px]" />
         </div>
 
         {/* two col layout - form on left, summary on right */}
@@ -140,11 +140,11 @@ function OrderSummary({ loading, onPayNow }: { loading: boolean; onPayNow: () =>
         <div className="flex items-start gap-3">
           <img
             src="/magazine-cover-2.jpg"
-            alt="vogue gift subscription"
+            alt="elan gift subscription"
             className="w-16 h-auto object-cover"
           />
           <div className="flex-1">
-            <div className="font-bold text-sm">Vogue</div>
+            <div className="font-bold text-sm">ÉLAN Homme</div>
             <p className="text-xs text-gray-600 mt-1">
               Annual subscription - 4 issues - Immediate digital access - Cancel at any time
             </p>

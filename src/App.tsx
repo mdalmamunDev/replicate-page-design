@@ -136,18 +136,18 @@ function SubscriptionForm() {
 
       {/* main container for the whole form */}
       <div className="max-w-[1000px] mx-auto px-6 pb-20">
-        {/* big vogue logo in middle */}
+        {/* big elan logo in middle */}
         <div className="pt-6 pb-4">
-          <img src="/logo.png" alt="Vogue logo" className="w-[180px] md:w-[300px] ms-[-15px]" />
+          <img src="/logo.png" alt="ÉLAN Homme logo" className="w-[180px] md:w-[300px] ms-[-15px]" />
         </div>
 
         {/* two colum layout - form on left, cover on right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 mt-6">
           {/* left col - the subscription form */}
           <div>
-            {/* section title "Vogue" with line under */}
+            {/* section title "ÉLAN Homme" with line under */}
             <div className="flex items-end gap-4 border-b border-gray-200 pb-2 mb-6">
-              <h2 className="text-2xl font-bold">Vogue</h2>
+              <h2 className="text-2xl font-bold">ÉLAN Homme</h2>
             </div>
 
             {/* picking ordertype - myself or gift */}
@@ -370,8 +370,8 @@ function SubscriptionForm() {
               <img
                 key={imageKey}
                 src={coverImage}
-                alt={orderType === 'self' ? 'vogue magazine cover' : 'vogue gift issue cover'}
-                className="w-full h-auto block vogue-fade-in"
+                alt={orderType === 'self' ? 'elan magazine cover' : 'elan gift issue cover'}
+                className="w-full h-auto block elan-fade-in"
               />
             </div>
 
@@ -412,10 +412,10 @@ function SubscriptionForm() {
 
       {/* inline style for the fade in animation */}
       <style>{`
-        .vogue-fade-in {
-          animation: vogueFadeIn 0.6s ease-in-out both;
+        .elan-fade-in {
+          animation: elanFadeIn 0.6s ease-in-out both;
         }
-        @keyframes vogueFadeIn {
+        @keyframes elanFadeIn {
           0% { opacity: 0; transform: scale(0.97); }
           100% { opacity: 1; transform: scale(1); }
         }
